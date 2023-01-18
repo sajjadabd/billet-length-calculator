@@ -1,0 +1,1624 @@
+<html dir="rtl">
+
+<head>
+
+<title>BLC ( Billet Length Calculator )</title>
+<script src="./assets/js/sweetalert2@11.js"></script>
+
+
+<link rel="stylesheet" href="./assets/css/snackbar.css" />
+<link rel="stylesheet" href="./assets/css/style.css" />
+<link rel="stylesheet" href="./assets/css/preface.css" />
+<link rel="stylesheet" href="./assets/css/spinner.css" />
+<link rel="stylesheet" href="./assets/css/switch.css" />
+<link rel="stylesheet" href="./assets/css/jquery-ui.min.css" />
+
+
+<link rel="shortcut icon" type="image/png" href="./assets/images/calculator-icon.png" />
+
+</head>
+</head>
+
+
+<body id="body" class="bodyDarkTheme">
+
+
+
+<div id="test">
+</div>
+
+
+
+<div id="aboutProgram" class="aboutProgram"> 
+
+	<div id="rightSide">
+		<ul id="prefaceMenu">
+			<li id="title">عنوان</li>
+			<li id="preface">مقدمه</li>
+			<li id="contactUsItem">تماس با ما</li>
+		</ul>
+	</div>
+	
+	<div id="prefaceText">
+
+	</div>
+	
+	<button id="continueToProgram" class="btn">ادامه ی برنامه</button>
+	
+	
+</div>
+
+
+
+
+<div id="contactUs" class="contactUs">
+
+</div>
+
+
+
+<div class="tableContainer" id="tableContainer" style="display:none;">
+	<div class="bestSelectionTable" id="bestSelectionTable">
+
+	</div>
+</div>
+
+
+
+<div class="tableContainer" id="tableContainerForFirstPart" style="display:none;">
+	<div class="bestSelectionTable" id="bestSelectionTableForFirstPart">
+
+	</div>
+</div>
+
+
+<div class="tableContainer" id="reportContainer" style="display:none;">
+	<div class="bestSelectionTable" id="reportTableContainer">
+
+	</div>
+</div>
+
+
+
+<!--
+<div id="searching">
+	<div id="spinner">
+	
+	</div>
+</div>
+-->
+<div id="searching" style="display:none;">
+	<div class="lds-roller">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<span class="loading">
+	<div id="loadingText" >
+	</div>
+	<div id="productLoadingName" class="english center"></div>
+	</span>
+</div>
+
+
+
+
+
+<div id="snackbar">
+طول برش بیلت باید
+بین
+5.70
+و
+6.30
+باشد
+</div>
+
+
+
+<div id="snackbar2">
+طول نرمال منفی است  ، از وزن محصول کم شود
+</div>
+
+
+
+
+
+
+
+<div id="wholeProgram" style="display:none;">
+
+
+
+
+
+
+
+<header id="mainHeader">
+
+
+
+<nav id="nav">
+	<ul>
+		<li id="print">
+			<img class="icon" src="./assets/images/printer3.png" />
+		</li>
+		<li id="whichTonagSelectListItem">
+			<select id="whichTonagSelect">
+				<option value="totalTonag">تناژ کل تولید</option>
+				<option value="khalesTonag">تناژ تولید خالص درجه 1 </option>
+			</select>
+		</li>
+		<li id="back" style="display:none">
+			<img class="icon" id="backIcon" src="./assets/images/back.png" />
+		</li>
+	</ul>
+</nav>
+
+<div class="title" id="mainTitle">
+	<h2>
+	محاسبه ی طول بیلت
+	</h2>
+
+	<h4>
+	تولید سکشن میل
+	</h4>
+</div>
+
+
+<div id="themeSwitch">
+
+	<label class="switch">
+	  <input type="checkbox" id="switch">
+	  <span class="slider round"></span>
+	</label>
+
+</div>
+
+
+</header>
+
+
+
+
+
+
+
+<main >
+
+
+
+
+
+<div id="mainPage" class="paper">
+
+<div class="halfPaper">
+		
+
+<div class="wrapper">
+
+<div id="search1" class="searchIcon">
+		<img class="icon" src="./assets/images/calculator-icon.png" />
+	</div>
+
+<div class="row">
+
+	
+
+
+	<section class="column">
+	<p>
+	نوع محصول
+	</p>
+	<select id="selectProduct">
+		
+	</select>
+	</section>
+
+
+	<section class="column">
+	<p>
+	ابعاد بیلت
+	</p>
+	<div class="row">
+		<select id="billetDimentions" >
+			<option value="150">150*150</option>
+			<option value="180">180*180</option>
+			<option value="200">200*200</option>
+		</select>
+		<p>میلی متر</p>		
+	</div>
+	</section>
+
+
+	<section class="column">
+	<p>
+	کارخانه ی تولید کننده ی بیلت
+	</p>
+	<select id="factory">
+		<option >فولاد کاوه جنوب کیش</option>
+		<option >مجتمع جهان فولاد سیرجان</option>
+		<option >شرکت مجتمع صنعتي ذوب آهن پاسارگاد
+		</option>
+		<option >شرکت فولاد سيرجان ايرانيان
+		</option>
+		<option >شرکت فولاد کوير دامغان
+		</option>
+		<option >شركت مجتمع فولاد خراسان (نيشابور)
+		</option>
+		<option >فولاد زرند ایرانیان (کرمان)</option>
+		<option >فولاد ارفع یزد</option>
+		<option >فولاد خوزستان
+		</option>
+		<option >شرکت صنعتی معدنی چادرملو</option>
+		<option >مجتمع ذوب آهن فولاد خزر رشت
+		</option>
+		<option >سایر</option>
+		<option >شرکت مجتمع ذوب آهن و نورد کرمان
+		</option>
+		<option >شرکت صنايع فولاد مشيز بردسير
+		</option>
+		<option >شركت ذوب و نورد فولاد آلياژي سمنان
+		</option>
+		<option >شرکت پرديس صنعت زنده رود
+		</option>
+		<option >کارخانه لوله و اتصالات چدني کلاچ
+		</option>
+		<option >شرکت پولاد شمش ايساتيس
+		</option>
+		<option >البرز غرب ابهر
+		</option>
+		<option >غلتک سازان سپاهان
+		</option>
+		<option >ذوب آهن اصفهان
+		</option>
+		<option >شرکت الوند فولاد آريا
+		</option>
+		<option >شرکت توليد فولاد تارا شمش يزد
+		</option>
+		<option >شرکت پويش بازرگاني ذوب آهن اصفهان
+		</option>
+		<option >شرکت ذوب و نورد زرفام یزد</option>
+		<option >سپهر شرق عجب شیر</option>
+		<option >فولاد آلیاژ تهران</option>
+		<option >فولاد کاویان اشکذر یزد</option>
+		<option >فولاد نگین مشهد</option>
+		<option >آرتین فولاد آذر یزد</option>
+		<option >فولاد پالش یزد</option>
+		<option >شرکت ایده آل شمش کویر میبد</option>
+	</select>
+	</section>
+
+</div>
+
+
+
+<div  class="row"> 
+
+
+
+	<section class="column">
+	<p>
+	طول بیلت
+	</p>
+	<div class="row">
+		<input type="text" value="12" id="billetLength"  />
+		<p>متر</p>		
+	</div>
+	</section>
+
+
+	<section class="column">
+	<p>
+	وزن میانگین بیلت
+	</p>
+	<div class="row">
+		<input type="text" id="billetAverageWeight" />
+		<p>کیلوگرم</p>	
+	</div>
+	</section>
+
+
+	<section class="column">
+	<p>
+	وزن بیلت در هر متر
+	</p>
+	<div class="row">
+		<input type="text" id="billetWeightPerMeter" disabled />
+		<p>کیلوگرم</p>	
+	</div>
+	</section>
+
+</div>
+
+
+</div>
+
+
+
+<div class="wrapper">
+
+
+
+	<div class="row">
+
+
+		<section class="column">
+		<p>
+		طول برش اول 
+		( فیکس )
+		</p>
+		<div class="row"> 
+			<input 
+			type="text" 
+			value="6" 
+			id="firstCutLength"
+			/>
+			<p>متر</p>	
+		</div>
+		</section>
+
+
+		<section class="column">
+		<p>
+		میانگین وزن برش اول
+		</p>
+		<div class="row">
+			<input type="text" id="firstCutAvergeWight" disabled />
+			<p>کیلوگرم</p>
+		</div>
+		</section>
+
+	</div>	
+
+
+</div>
+
+
+
+
+<div class="wrapper">
+
+	<div class="pertiListContainer">
+		<ul class="pertiList" id="pertiList">
+			<li data-index='0' id="pertiWeight" class="active">وزن</li>
+			<li data-index='1' id="pertiLength">طول</li>
+		</ul>
+	</div>
+
+
+	<div data-index='0' class="rowForWeight">
+		<div class="row">
+
+
+			<section class="column">
+			<p>
+			وزن سربیلی
+			</p>
+			<div class="row">
+				<input type="text" id="sarBili" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+
+
+			<section class="column">
+			<p>
+			وزن سرقیچی
+			و ته قیچی
+			</p>
+			<div class="row">
+				<input type="text" id="sarGheichi" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+
+			<section class="column">
+			<p>
+			وزن ته بیلی
+			</p>
+			<div class="row">
+				<input type="text" id="tahBili" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+		</div>
+
+
+
+		<div class="row">
+
+
+			<section class="column">
+			<p>
+			براده ی اره
+			</p>
+			<div class="row">
+				<input type="text" id="boradeArre" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+
+			<section class="column">
+			<p>
+			 اکسید کوره و خط
+			</p>
+			<div class="row">
+				<input type="text" id="darsadOxid" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+		</div>
+	</div>
+	
+	
+	
+	<div data-index='1' class="rowForLength">
+		<div class="row">
+
+
+			<section class="column">
+			<p>
+			طول سربیلی
+			</p>
+			<div class="row">
+				<input type="text" id="sarBiliLength" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+
+
+			<section class="column">
+			<p>
+			طول سرقیچی
+			و ته قیچی
+			</p>
+			<div class="row">
+				<input type="text" id="sarGheichiLength" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+
+
+		</div>
+
+
+
+		<div class="row">
+		
+		
+		
+		
+
+			<section class="column">
+			<p>
+			طول ته بیلی
+			</p>
+			<div class="row">
+				<input type="text" id="tahBiliLength" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+			<section class="column">
+			<p>
+			طول براده ی اره
+			</p>
+			<div class="row">
+				<input type="text" id="boradeArreLength" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+
+		</div>
+		
+		
+		<div class="row ltr">
+			
+			<div class="onlyOneDeltaL">
+				<div id="onlyOneDeltaL1">
+			
+					<span class="equation">
+						\begin{align*}
+							\Delta L = L_{1} \alpha \Delta \theta = 
+						\end{align*} 
+					</span>
+					<!--
+					
+					<span>&Delta; L = L<sub class="english">1</sub> 	&alpha;  &Delta;  &theta; =  </span>
+					-->
+					<span class="english" id="theOnlyDeltaValue1"></span>
+				</div>
+			</div>
+			
+			
+			<div class="twoDeltaL">
+				<div class="eachRow" id="firstdelta1">
+			
+					<span class="equation">
+						\begin{align*}
+							\Delta L_{cut1} = L_{1} \alpha \Delta \theta = 
+						\end{align*} 
+					</span>
+					<!--
+					
+					<span>&Delta; L = L<sub class="english">1</sub> 	&alpha;  &Delta;  &theta; =  </span>
+					-->
+					<span class="english" id="deltaLValue11"></span>
+				</div>
+				
+				
+				<div class="eachRow" id="seconddelta1">
+				
+					<span>
+						\begin{align*}
+							\Delta L_{cut2} = L_{1} \alpha \Delta \theta = 
+						\end{align*}
+					</span>
+					
+					<!--
+					<span>&Delta; L = L<sub class="english">1</sub> 	&alpha;  &Delta;  &theta; =  </span>
+					-->
+					<span class="english" id="deltaLValue12"></span>
+				</div>
+			</div>
+			
+			
+		</div>
+		
+		
+	</div>
+
+
+
+</div>
+
+
+
+<div class="wrapper morePadding">
+
+
+
+	<div class="row-nowrap">
+	
+		<section class="column">
+		<p>
+		وزن استاندارد
+		</p>
+		<div class="row-nowrap">
+			<input type="text" id="standardWeight" disabled />
+			<p>کیلوگرم</p>
+		</div>
+		<p>
+		-
+		</p>
+		</section>
+
+
+
+
+		<section class="column">
+		<p>
+		وزن هر شاخه ی 12 متری محصول
+		</p>
+		<div class="row-nowrap">
+			<input class="eachTwelveMeterProductWeight" type="text" id="eachTwelveMeterProductWeight" />
+			<p>کیلوگرم</p>
+		</div>
+		<p class="info" id="darsadstandardWeight">
+		-
+		</p>
+		</section>
+	
+	</div>
+	
+	
+	<div id="slider-range"></div>
+	
+	
+	<div class="nominalRange">
+		<div class="english ltr">-4%</div>
+		<div class="english ltr">-3%</div>
+		<div class="english ltr">-2%</div>
+		<div class="english ltr">-1%</div>
+		<div class="middle english ltr">0%</div>
+		<div class="english ltr">1%</div>
+		<div class="english ltr">2%</div>
+		<div class="english ltr">3%</div>
+		<div class="english ltr">4%</div>
+	</div>
+
+</div>
+
+
+<div class="wrapper morePadding">
+
+	<div class="row">
+	
+		<section class="column">
+		<p>
+		تعداد شاخه ی 12 متری محصول  برای یک بیلت
+		</p>
+		<div class="row">
+			<input type="text" id="numberOfTwelveMeterProductForEachBillet" disabled />
+			
+			<p>
+			شاخه
+			</p>
+		</div>
+		</section>
+
+	</div>
+	
+</div>
+
+
+
+
+
+<div class="wrapper morePadding">
+
+	<div class="row-nowrap">
+
+		<section class="column">
+		<p>
+		طول محصول
+		</p>
+		<div class="row-nowrap"> 
+			<input type="text" id="productLength" disabled />
+			<p>متر</p>	
+		</div>
+		
+		<p id="productLengthinformation">
+		-
+		</p>
+		</section>
+
+
+
+
+		<section class="column">
+		<p>
+		طول نرمال
+		</p>
+		<div class="row-nowrap">
+			<input type="text" id="normalLength" disabled />
+			<p>متر</p>	
+		</div>
+		<p>
+		-
+		</p>
+		</section>
+		
+	</div>
+
+
+</div>
+
+
+<div id="colorize" class="wrapper morePadding">
+
+	<section class="column">
+	<p>
+	شاخص
+	</p>
+	<div class="row">
+		<input type="text" id="shakhes" disabled />
+		<p>کیلوگرم</p>
+	</div>
+	</section>
+
+
+
+</div>
+
+
+</div>
+	
+	
+	
+<!-- -->
+
+
+
+<div class="halfPaper">
+		
+		
+
+
+<div class="wrapper">
+
+<div id="search2" class="searchIcon">
+		<img class="icon" src="./assets/images/calculator-icon.png" />
+	</div>
+
+<div class="row">
+
+	
+
+
+	<section class="column">
+		<p>
+		نوع محصول
+		</p>
+		<select id="selectProduct2">
+			
+		</select>
+	</section>
+
+
+	<section class="column">
+		<p>
+		ابعاد بیلت
+		</p>
+		<div class="row">
+			<select id="billetDimentions2" disabled>
+				<option value="150">150*150</option>
+				<option value="180">180*180</option>
+				<option value="200">200*200</option>
+			</select>
+			<p>میلی متر</p>		
+		</div>
+	</section>
+
+
+	<section class="column">
+		<p>
+		کارخانه ی تولید کننده ی بیلت
+		</p>
+		<select id="factory2" disabled>
+			<option >فولاد کاوه جنوب کیش</option>
+			<option >مجتمع جهان فولاد سیرجان</option>
+			<option >شرکت مجتمع صنعتي ذوب آهن پاسارگاد</option>
+			<option >شرکت فولاد سيرجان ايرانيان</option>
+			<option >شرکت فولاد کوير دامغان</option>
+			<option >شركت مجتمع فولاد خراسان (نيشابور)</option>
+			<option >فولاد زرند ایرانیان (کرمان)</option>
+			<option >فولاد ارفع یزد</option>
+			<option >فولاد خوزستان</option>
+			<option >شرکت صنعتی معدنی چادرملو</option>
+			<option >مجتمع ذوب آهن فولاد خزر رشت</option>
+			<option >سایر</option>
+			<option >شرکت مجتمع ذوب آهن و نورد کرمان</option>
+			<option >شرکت صنايع فولاد مشيز بردسير</option>
+			<option >شركت ذوب و نورد فولاد آلياژي سمنان</option>
+			<option >شرکت پرديس صنعت زنده رود</option>
+			<option >کارخانه لوله و اتصالات چدني کلاچ</option>
+			<option >شرکت پولاد شمش ايساتيس</option>
+			<option >البرز غرب ابهر</option>
+			<option >غلتک سازان سپاهان</option>
+			<option >ذوب آهن اصفهان</option>
+			<option >شرکت الوند فولاد آريا</option>
+			<option >شرکت توليد فولاد تارا شمش يزد</option>
+			<option >شرکت پويش بازرگاني ذوب آهن اصفهان</option>
+			<option >شرکت ذوب و نورد زرفام یزد</option>
+			<option >سپهر شرق عجب شیر</option>
+			<option >فولاد آلیاژ تهران</option>
+			<option >فولاد کاویان اشکذر یزد</option>
+			<option >فولاد نگین مشهد</option>
+			<option >آرتین فولاد آذر یزد</option>
+			<option >فولاد پالش یزد</option>
+			<option >شرکت ایده آل شمش کویر میبد</option>
+		</select>
+	</section>
+
+</div>
+
+
+
+<div  class="row"> 
+
+
+
+	<section class="column">
+		<p>
+		طول بیلت
+		</p>
+		<div class="row">
+			<input value="12" type="text" id="billetLength2" disabled />
+			<p>متر</p>		
+		</div>
+	</section>
+
+
+	<section class="column">
+		<p>
+		وزن میانگین بیلت
+		</p>
+		<div class="row">
+			<input type="text" id="billetAverageWeight2" disabled />
+			<p>کیلوگرم</p>	
+		</div>
+	</section>
+
+
+	<section class="column">
+		<p>
+		وزن بیلت در هر متر
+		</p>
+		<div class="row">
+			<input type="text" id="billetWeightPerMeter2" disabled />
+			<p>کیلوگرم</p>	
+		</div>
+	</section>
+
+</div>
+
+
+</div>
+
+
+
+<div class="wrapper">
+
+
+
+	<div class="row">
+
+
+		<section class="column">
+		<p>
+		طول
+		برش
+		دوم 
+		( متغیر )
+		</p>
+		<div class="row"> 
+			<input 
+			type="text" 
+			min="5.7" 
+			max="6.3" 
+			id="firstCutLength2" 
+			disabled 
+			/>
+			<p>متر</p>	
+		</div>
+		</section>
+
+
+		<section class="column">
+		<p>
+		میانگین وزن
+		برش 
+		دوم
+		</p>
+		<div class="row">
+			<input type="text" id="firstCutAvergeWight2" disabled />
+			<p>کیلوگرم</p>
+		</div>
+		</section>
+
+	</div>	
+
+
+</div>
+
+
+
+
+<div class="wrapper">
+
+	<div class="pertiListContainer">
+		<ul class="pertiList">
+			<li data-index='0' class="active">وزن</li>
+			<li data-index='1' >طول</li>
+		</ul>
+	</div>
+	
+
+
+
+	<div data-index='0' class="rowForWeight">
+	
+		<div class="row">
+
+
+			<section class="column">
+			<p>
+			وزن سربیلی
+			</p>
+			<div class="row">
+				<input type="text" id="sarBili2" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+
+
+			<section class="column">
+			<p>
+			وزن سرقیچی
+			و ته قیچی
+			</p>
+			<div class="row">
+				<input type="text" id="sarGheichi2" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+
+			<section class="column">
+			<p>
+			وزن ته بیلی
+			</p>
+			<div class="row">
+				<input type="text" id="tahBili2" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+		</div>
+
+
+
+		<div class="row">
+
+
+			<section class="column">
+			<p>
+			براده ی اره
+			</p>
+			<div class="row">
+				<input type="text" id="boradeArre2" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+
+
+			<section class="column">
+			<p>
+			 اکسید کوره و خط
+			</p>
+			<div class="row">
+				<input type="text" id="darsadOxid2" disabled />
+				<p>کیلوگرم</p>
+			</div>
+			</section>
+
+		</div>
+	
+	</div>
+	
+	
+	<div data-index='0' class="rowForLength">
+	
+		<div class="row">
+
+
+			<section class="column">
+			<p>
+			طول سربیلی
+			</p>
+			<div class="row">
+				<input type="text" id="sarBiliLength2" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+
+
+			<section class="column">
+			<p>
+			طول سرقیچی
+			و ته قیچی
+			</p>
+			<div class="row">
+				<input type="text" id="sarGheichiLength2" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+
+
+		</div>
+
+
+
+		<div class="row">
+		
+		
+		
+		
+
+			<section class="column">
+			<p>
+			طول ته بیلی
+			</p>
+			<div class="row">
+				<input type="text" id="tahBiliLength2" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+			<section class="column">
+			<p>
+			طول براده ی اره
+			</p>
+			<div class="row">
+				<input type="text" id="boradeArreLength2" disabled />
+				<p>متر</p>
+			</div>
+			</section>
+
+
+
+		</div>
+		
+		
+		
+		
+		
+		
+		<div class="row ltr">
+		
+		
+			<div class="onlyOneDeltaL">
+				<div id="onlyOneDeltaL2">
+			
+					<span class="equation">
+						\begin{align*}
+							\Delta L = L_{1} \alpha \Delta \theta = 
+						\end{align*} 
+					</span>
+					<!--
+					
+					<span>&Delta; L = L<sub class="english">1</sub> 	&alpha;  &Delta;  &theta; =  </span>
+					-->
+					<span class="english" id="theOnlyDeltaValue2"></span>
+				</div>
+			</div>
+			
+			
+			<div class="twoDeltaL">
+			
+				<div class="eachRow" id="firstdelta2">
+			
+					<span class="equation">
+						\begin{align*}
+							\Delta L_{cut1} = L_{1} \alpha \Delta \theta = 
+						\end{align*}
+					</span>
+					
+					
+					<span class="english" id="deltaLValue21"></span>
+				</div>
+				
+				
+				
+				<div class="eachRow" id="seconddelta2">
+					
+					<span>
+						\begin{align*}
+							\Delta L_{cut2} = L_{1} \alpha \Delta \theta = 
+						\end{align*}
+					</span>
+					
+					
+					
+					
+					<span class="english" id="deltaLValue22"></span>
+				</div>
+			
+			</div>
+			
+		</div>
+		
+		
+	
+	</div>
+
+
+
+</div>
+
+
+
+<div class="wrapper morePadding">
+
+
+
+	<div class="row-nowrap">
+	
+		<section class="column">
+		<p>
+		وزن استاندارد
+		</p>
+		<div class="row-nowrap">
+			<input type="text" id="standardWeight2" disabled />
+			<p>کیلوگرم</p>
+		</div>
+		<p>
+		-
+		</p>
+		</section>
+
+
+
+
+		<section class="column">
+		<p>
+		وزن هر شاخه ی 12 متری محصول
+		</p>
+		<div class="row-nowrap">
+			<input class="eachTwelveMeterProductWeight" type="text" id="eachTwelveMeterProductWeight2" />
+			<p>کیلوگرم</p>
+		</div>
+		<p class="info" id="darsadstandardWeight2">
+		-
+		</p>
+		</section>
+	
+	</div>
+	
+	
+	<div id="slider-range2"></div>
+	
+	
+	<div class="nominalRange">
+		<div class="english ltr">-4%</div>
+		<div class="english ltr">-3%</div>
+		<div class="english ltr">-2%</div>
+		<div class="english ltr">-1%</div>
+		<div class="middle english ltr">0%</div>
+		<div class="english ltr">1%</div>
+		<div class="english ltr">2%</div>
+		<div class="english ltr">3%</div>
+		<div class="english ltr">4%</div>
+	</div>
+
+</div>
+
+
+<div class="wrapper morePadding">
+
+	<div class="row">
+	
+		<section class="column">
+		<p>
+		تعداد شاخه ی 12 متری محصول  برای یک بیلت
+		</p>
+		<div class="row">
+			<input type="text" id="numberOfTwelveMeterProductForEachBillet2" disabled />
+			
+			<p>
+			شاخه
+			</p>
+		</div>
+		</section>
+
+	</div>
+	
+</div>
+
+
+
+
+
+<div class="wrapper morePadding">
+
+	<div class="row-nowrap">
+
+		<section class="column">
+		<p>
+		طول محصول
+		</p>
+		<div class="row-nowrap"> 
+			<input type="text" id="productLength2" disabled />
+			<p>متر</p>	
+		</div>
+		
+		<p id="productLengthinformation2">
+		-
+		</p>
+		</section>
+
+
+
+
+		<section class="column">
+		<p>
+		طول نرمال
+		</p>
+		<div class="row-nowrap">
+			<input type="text" id="normalLength2" disabled />
+			<p>متر</p>	
+		</div>
+		<p>
+		-
+		</p>
+		</section>
+		
+	</div>
+
+
+</div>
+
+
+<div id="colorize2" class="wrapper morePadding">
+
+	<section class="column">
+	<p>
+	شاخص
+	</p>
+	<div class="row">
+		<input type="text" id="shakhes2" disabled />
+		<p>کیلوگرم</p>
+	</div>
+	</section>
+
+
+
+</div>
+
+<!-- -->
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+</main>
+
+
+
+
+<!--
+<div id="lastFooter" class="lastFooter">
+
+	<div>
+	تماس با ما
+	</div>
+
+	<div>
+	درباره ی برنامه
+	</div>
+
+</div>
+-->
+
+
+
+
+</div>
+
+
+
+
+
+
+<footer id="tableContentWrapper" style="display:none">
+	<div id="firstPart">
+		
+		<div class="tableHeader" id="header1">
+		</div>
+		
+		<div class="tableContent" id="table1">
+		</div>
+		
+	</div>
+	<div id="secondPart">
+		
+		<div class="tableHeader" id="header2">
+		</div>
+		
+		<div class="tableContent" id="table2">
+		</div>
+		
+	</div>
+</footer>
+
+
+
+
+
+
+
+<div class="finalResult" id="finalResult" style="display:none">
+
+	<button id="finalFix">
+		تثبیت
+	</button>
+
+	<button id="reportTolidButton">
+		گزارش کلی تولید
+	</button>
+
+</div>
+
+
+
+
+
+
+
+
+<script src="./assets/js/printjs.min.js"></script>
+<script src="./assets/js/jalali-moment.browser.js"></script>
+<script src="./assets/js/code.js" ></script>
+
+
+<script src="./assets/js/tex-chtml.js"></script>
+
+<script src="./assets/js/jquery.js"></script>
+<script src="./assets/js/jquery-ui.min.js"></script>
+
+<script>
+  $( function() {
+    let range = 4;
+	
+	
+    $( "#slider-range" ).slider({
+      range: true,
+	  step : 0.5,
+      min: -range,
+      max: range,
+      values: [ -range, range ],
+      slide: function( event, ui ) {
+		
+		if( ui.values[0] >= -1 && ui.values[1] <= 1 ) {
+			$( "#slider-range" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header greenColoring"
+			  }
+			});
+			
+			$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header greenColoring"
+			  }
+			});
+			
+		} else if ( ui.values[0] >= -2 && ui.values[1] <= 2 ) {
+			$( "#slider-range" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header yellowColoring"
+			  }
+			});
+			
+			$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header yellowColoring"
+			  }
+			});
+		} else {
+			$( "#slider-range" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header redColoring"
+			  }
+			});
+			
+			
+			$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header redColoring"
+			  }
+			});
+		}
+		
+		
+		
+		
+		
+		//$( "#slider-range2" ).slider( "option", "values", [ ui.values[ 0 ] , ui.values[ 1 ] ] );
+		
+		
+		//console.table({
+		//	min : ui.values[ 0 ] , 
+		//	max : ui.values[ 1 ]
+		//});
+		
+		
+		
+		
+		
+		
+		
+		
+      }
+    });
+	
+	$( "#slider-range" ).slider({
+	  classes: {
+		"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+		"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+		"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header redColoring"
+	  }
+	});
+	
+	
+	
+	
+	
+	$( "#slider-range" ).on( "slidestop", function( event, ui ) {
+	
+		
+		if( ui.values[ 0 ] > 0 ) {
+			ui.values[ 0 ] = 0;
+			$( "#slider-range" ).slider( "option", "values", [ 0, ui.values[ 1 ] ] );
+		}
+		if ( ui.values[ 1 ] < 0 ) {
+			ui.values[ 1 ] = 0;
+			$( "#slider-range" ).slider( "option", "values", [ ui.values[ 0 ], 0 ] );
+		}
+		
+		
+		
+		
+		$( "#slider-range2" ).slider( "option", "values", [ ui.values[ 0 ] , ui.values[ 1 ] ] );
+		
+		
+		
+		
+		//ui.values[ 0 ] = Math.floor(ui.values[ 0 ] / 10);
+		//ui.values[ 1 ] = Math.floor(ui.values[ 1 ] / 10);
+		
+		
+		changeSliderRangeValues( ui.values[ 0 ] , ui.values[ 1 ] );
+		
+		
+		
+
+	} );
+	
+	
+	$( "#slider-range" ).on( "slidechange", function( event, ui ) {
+		
+	});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	$( "#slider-range2" ).slider({
+      range: true,
+	  step : 0.5,
+      min: -range,
+      max: range,
+      values: [ -range, range ],
+      slide: function( event, ui ) {
+		
+		if( ui.values[0] >= -1 && ui.values[1] <= 1 ) {
+			$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header greenColoring"
+			  }
+			});
+		} else if ( ui.values[0] >= -2 && ui.values[1] <= 2 ) {
+			$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header yellowColoring"
+			  }
+			});
+		} else {
+			$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header redColoring"
+			  }
+			});
+		}
+		
+		
+		
+		
+      }
+    });
+	
+	$( "#slider-range2" ).slider({
+			  classes: {
+				"ui-slider": "ui-slider ui-corner-all ui-slider-horizontal ui-widget ui-widget-content",
+				"ui-slider-handle": "ui-slider-handle ui-corner-all ui-state-default",
+				"ui-slider-range": "ui-slider-range ui-corner-all ui-widget-header redColoring"
+			  }
+			});
+	
+	
+	$( "#slider-range2" ).on( "slidestop", function( event, ui ) {
+		
+		//ui.values[ 0 ] = Math.floor(ui.values[ 0 ] / 10);
+		//ui.values[ 1 ] = Math.floor(ui.values[ 1 ] / 10);
+		/*
+		if( ui.values[ 0 ] > 0 ) {
+			ui.values[ 0 ] = 0;
+			$( "#slider-range" ).slider( "option", "values", [ 0, ui.values[ 1 ] ] );
+		}
+		if ( ui.values[ 1 ] < 0 ) {
+			ui.values[ 1 ] = 0;
+			$( "#slider-range" ).slider( "option", "values", [ ui.values[ 0 ], 0 ] );
+		}
+		
+		*/
+		
+		//console.table({
+		//	min : ui.values[ 0 ] , 
+		//	max : ui.values[ 1 ]
+		//});
+		
+		
+		//changeSliderRangeValues( ui.values[ 0 ] , ui.values[ 1 ] );
+
+	} );
+	
+	
+	$( "#slider-range2" ).on( "slidechange", function( event, ui ) {
+		
+	});
+	
+	
+	
+	$( "#slider-range2" ).slider( "disable" );
+	
+	
+
+  } );
+  </script>
+  
+  
+  
+
+
+
+</body>
+</html>

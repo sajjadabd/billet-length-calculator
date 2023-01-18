@@ -1,0 +1,95 @@
+﻿billetWeightPerMeterValue
+وزن بیلت در هر متر
+
+function => calculateBilletWeightPerMeterValue() =>
+
+billetAverageWeightValue / billetLengthValue;
+billetWeightPerMeterValue = Number(billetWeightPerMeterValue.toFixed(2));
+
+
+=============================
+firstCutAvergeWeightValue
+میانگین وزن برش اول
+
+function => calculatefirstCutAvergeWeightValue()
+
+firstCutAvergeWightValue = firstCutLengthValue * billetWeightPerMeterValue;
+firstCutAvergeWightValue = Number(firstCutAvergeWightValue.toFixed(2));
+
+=============================
+
+sumOfPerti()
+
+usage => calculateShakhes()
+
+shakhesValue = firstCutAvergeWightValue - sumOfPerti();
+shakhesValue = Number(shakhesValue.toFixed(2));
+
+==============================
+تعداد شاخه ی 12 متری محصول برای یک بیلت
+
+
+if( shakhesValue && eachTwelveMeterProductWeightValue ) {
+	try {
+		let preCalculateNumberOfTwelveMeterProductForEachBillet = 
+		Math.floor(Number((shakhesValue / eachTwelveMeterProductWeightValue)));
+		//Number((shakhesValue / eachTwelveMeterProductWeightValue).toFixed(2));
+		
+		
+		numberOfTwelveMeterProductForEachBillet.value = preCalculateNumberOfTwelveMeterProductForEachBillet;
+			
+		numberOfTwelveMeterProductForEachBilletValue = preCalculateNumberOfTwelveMeterProductForEachBillet;
+	} catch(e) {
+		
+	}
+}
+
+=========================
+
+let productLengthCheck = 73;
+
+productLengthValue 
+طول محصول
+
+function => calculateproductLengthValue
+
+productLengthValue = (12 * numberOfTwelveMeterProductForEachBilletValue) + normalLengthValue;
+
+productLengthValue += sarGheichiLengthValue + sarBiliLengthValue + tahBiliLengthValue + boradeArreLengthValue ;
+
+productLengthValue = Number(productLengthValue.toFixed(2));
+
+
+
+
+
+========================
+
+normalLengthValue
+طول نرمال
+
+function => calculateNormal()
+
+normalLengthValue = ( shakhesValue - 
+( eachTwelveMeterProductWeightValue *
+numberOfTwelveMeterProductForEachBilletValue) ) / ( standardWeightValue / 12 )
+normalLengthValue = Number(normalLengthValue.toFixed(2));
+normalLength.value = normalLengthValue;
+
+
+===========================
+
+shakhesValue
+شاخص
+
+function => calculateShakhes()
+
+shakhesValue = firstCutAvergeWightValue - sumOfPerti();
+shakhesValue = Number(shakhesValue.toFixed(2));
+
+
+
+
+
+
+

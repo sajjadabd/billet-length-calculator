@@ -1,0 +1,15 @@
+Billet Information
+
+Date :
+SIZE : IPE 140 I7
+BILLET SECTION(mm) : 150*150 mm
+BILLET LENGTH(m) : 6.25 m (fix) / 5.75 m (variable)
+BILLET Weight(kg) : ~1106 kg / ~1017 kg
+Product Length(m) :  96m / 89m 
+NUMBER OF PRODUCT(#12m) :
+8 pcs (#12m) + 0 m Normal / 7 pcs (#12m) + 4 m Normal
+NOMINAL(kg) : 136.8 / 136.8
+PRODUCT WEIGHT(kg) : 134.2 kg / 134.5 kg 
+WEIGHT TOLLERANCE : (-1.9)% Nominal / (-1.68)% Nominal 
+Shear : Yes Cut1: 48 m Cut2: 48 m
+PCS : PCS  / * 404 pcs (3sp Sirjsn Iranian ) / 449 ton

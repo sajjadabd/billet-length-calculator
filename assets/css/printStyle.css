@@ -1,0 +1,22 @@
+@font-face {
+  font-family: Sahell;
+  src: url(../fonts/Sahel.ttf);
+}
+
+
+footer#tableContentWrapper {
+	direction : rtl;
+	display : flex;
+	flex-direction : row;
+	justify-content : space-around;
+	
+}
+
+table td {
+	font-family : Sahell;
+	font-size : 20px;
+}
+
+
+
+

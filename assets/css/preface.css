@@ -1,0 +1,254 @@
+:root {
+	--font-size : 12px;
+	--image-size : 45px;
+	--default-margin : 20px;
+	--default-padding : 10px;
+}
+
+div.aboutProgram {
+	/*background-color : rgba(0,0,0,0.4);*/
+	
+	color : white;
+	
+	/*padding : 5em 0em;*/
+	width : 100%;
+	
+	box-sizing : border-box;
+	position : relative;
+	z-index : 10;
+	direction : rtl;
+	
+	display : flex ;
+	flex-direction : row ;
+	
+	text-align : justify;
+	
+	min-height : 100vh;
+}
+
+
+div.lineHeight {
+	line-height : 40px;
+	
+}
+
+
+div.preface  {
+	margin : 0 10em;
+	font-size : 1rem !important;
+}
+
+div.center {
+	text-align : center;
+}
+
+
+div.leftAlign {
+
+	text-align : left;
+}
+
+
+div.rightAlign {
+	text-align : right;
+}
+
+
+div.prefaceTitle {
+	line-height : 40px;
+	display : flex;
+	flex-direction : column;
+	justify-content : flex-start;
+}
+
+
+div.horizontalPadding {
+	padding-top : 50px;
+}
+
+span.bigSize {
+	font-size : var(--font-size)*5 !important;
+}
+
+
+table.contactTable td.bigSize {
+	font-size : 20px !important;
+}
+
+
+span.smallSize {
+	font-size : var(--font-size);
+}
+
+
+
+div.contactus {
+	display : flex;
+	flex-direction : column;
+	justify-content : center;
+	flex : 1;
+	font-size : 1rem;
+}
+
+div.contactus > div {
+	display : flex;
+	flex-direction : row;
+	justify-content : center;
+	padding : 2em 0 ;
+}
+
+
+
+table.contactTable {
+	
+	margin : auto;
+	width : 60%;
+	color : white;
+	
+}
+
+table.contactTable td {
+	padding : 20px;
+}
+
+
+
+div.aboutProgram p {
+	text-align : justify;
+	
+}
+
+div.aboutProgram h3 , div.aboutProgram p.code   {
+	text-align : center;
+}
+
+
+h3 {
+	font-size : 30px;
+	position : absolute;
+	right : 0 ;
+	top : 0;
+	background: #42275a;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #734b6d, #42275a);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #734b6d, #42275a); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+button#continueToProgram {
+	border : none;
+	background-color : transparent;
+	color : white;
+	position : absolute;
+	left : 0 ;
+	bottom : 0;
+	padding : 20px 30px;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%,  rgba(175,0,255,1) 100%);
+	border-radius : 0px  30px 0px 0px;
+}
+
+button#continueToProgram:hover {
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(175,0,155,1) 100%,  rgba(175,0,255,1) 100%);
+}
+
+div#rightSide {
+	width : 100px;
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%,  rgba(175,0,255,1) 100%);
+	display	: flex;
+	justify-content : center;
+	align-items : center;
+	position : relative;
+}
+
+
+div#prefaceText {
+	flex : 10;
+	background: #000428;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #004e92, #000428);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #004e92, #000428); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+	display	: flex;
+	justify-content : center;
+	align-items : center;
+	
+}
+
+
+
+ul#prefaceMenu {
+	padding : 0;
+	margin : 0;
+	display : flex;
+	flex-direction : column;
+	list-style-type : none;
+	position : relative;
+	left : -50%;
+}
+
+ul#prefaceMenu li {
+	width : 80px;
+	height : 40px;
+	padding : 40px;
+	margin : 40px;
+	display : flex;
+	justify-content : center;
+	align-items : center;
+	border-radius : 25px;
+	
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(2,0,36,1) 0%,  rgba(2,0,36,0.1) 100%);
+	
+	
+	
+	font-size : var(--font-size*4);
+}
+
+
+ul#prefaceMenu li:hover {
+	
+	cursor : pointer;
+	
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(175,0,255,0.1) 0%,  rgba(175,0,255,1) 100%);
+}
+
+
+ul#prefaceMenu li.active {
+	background: rgb(2,0,36);
+	background: linear-gradient(90deg, rgba(175,0,255,0.1) 0%,  rgba(175,0,255,1) 100%);
+}
+
+
+.hithere {
+  animation: hithere 1s ease;
+}
+
+@keyframes hithere {
+  30% { transform: scale(1.2); }
+  40%, 60% { transform: rotate(-10deg) scale(1.2); }
+  50% { transform: rotate(10deg) scale(1.2); }
+  70% { transform: rotate(0deg) scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+
+
+
+
+
+@media screen and (max-width: 1000px) {
+
+		
+	div.preface  {
+		margin : 0 10em;
+		margin-left : 3em;
+		font-size : 0.6rem !important;
+	}
+	
+		
+	div.contactus table td.bigSize {
+		font-size : 0.7rem !important;
+	}
+
+}
